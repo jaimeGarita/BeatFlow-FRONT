@@ -1,4 +1,5 @@
-import bcrypt from "bcryptjs";
+import jwt_decode from 'jwt-decode';
+import CryptoJS from "crypto-js";
 import LoginService from "../../service/LoginService";
 
 export default {
@@ -6,6 +7,10 @@ export default {
     return {
       loginForm: {
         username: "",
+        password: "",
+      },
+      user: {
+        userName: "",
         password: "",
       },
       loginRules: {
@@ -19,24 +24,21 @@ export default {
     };
   },
   methods: {
-    async login() {
-      let passwordEncode = await this.encryptPassword();
-      console.log(passwordEncode);
-    },
-    async encryptPassword() {
-      const loginService = new LoginService();
+    login() {
+      const login = new LoginService();
+      let hash = CryptoJS.SHA256(this.loginForm.password).toString();
 
-      try {
-        const response = await loginService.getSalting(this.loginForm.username);
-        const salt = response.data;
-        const hashedPassword = await bcrypt.hash(
-          this.loginForm.password,
-          salt
-        );
-        return hashedPassword;
-      } catch (error) {
-        console.log(error);
-      }
+      this.user.userName = this.loginForm.username;
+      this.user.password = hash;
+
+      login.checkLoging(this.user).then((e) => {
+        if (e.status == 200) {
+          this.$cookies.set('JWT-USER', e.data)
+          this.$router.push('/home')
+        }else if (e.status == 401) {
+          console.log("NO ES CORRECTO" + e.data);
+        }
+      });
     },
   },
 };

@@ -1,12 +1,13 @@
 import axios from "axios";
-import { BASE_ENDPOINT_SALTING } from "../enviroments/Enviroments";
+import { BASE_ENDPOINT_LOGIN } from "../enviroments/Enviroments";
 
 
 export default class LoginService {
 
-    static BASE_ENDPOINT_SALTING = BASE_ENDPOINT_SALTING;
+    static BASE_ENDPOINT_LOGIN = BASE_ENDPOINT_LOGIN;
 
-    getSalting(userName){
-        return axios.get(BASE_ENDPOINT_SALTING + "?userName="+userName);
+    checkLoging(user){
+        return axios.post(BASE_ENDPOINT_LOGIN, user);
     }
+    
 }
