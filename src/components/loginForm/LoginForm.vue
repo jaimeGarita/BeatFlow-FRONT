@@ -20,7 +20,6 @@
 </template>
 
 <script>
-
 import LoginFormJS from "./LoginForm";
 import './LoginForm.css'
 import '../../styles/main.css'

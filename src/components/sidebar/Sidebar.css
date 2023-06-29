@@ -1,0 +1,56 @@
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background-color: var(--container-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar.collapsed {
+  width: 4%;
+}
+
+.menu {
+  width: 100%;
+  height: 100%;
+  background-color: var(--container-color);
+  border-right: solid 0px !important;
+}
+
+.el-menu-item {
+  
+  display: flex;
+  align-items: center;
+}
+.collapse-button {
+  cursor: pointer;
+  position: absolute;
+  top: 1%;
+  right: 2%;
+
+}
+
+.collapse-button i {
+  font-size: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.collapsed .collapse-button i {
+  transform: rotate(360deg);
+}
+
+.sidebar.dark {
+  background-color: var(--container-color);
+}
+.menu .el-menu-item:hover {
+  color: var(--sidebar-selected) !important;
+  background-color: unset !important;
+}
+
+.menu .el-menu-item.is-active {
+  color: var(--sidebar-selected) !important;
+  background-color: unset !important;
+}
+

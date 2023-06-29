@@ -4,10 +4,9 @@
 <script>
 import LoginForm from '@/components/loginForm/LoginForm.vue'
 
-
 export default {
   components: {
-    LoginForm
-  }
+    LoginForm,
+}
 }
 </script>

@@ -1,4 +1,3 @@
-import jwt_decode from 'jwt-decode';
 import CryptoJS from "crypto-js";
 import LoginService from "../../service/LoginService";
 

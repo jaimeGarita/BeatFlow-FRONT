@@ -3,6 +3,7 @@
   --title-color: #EFF3F5;
   --text-color: #C8CDD0;
   --light-text-color: #A0A7AC;
+  --sidebar-selected: #f6ae55;
   --border-color: #2A3B47;
   --container-color: #212E36;
   --body-color: #192229;
@@ -12,6 +13,7 @@
 body {
   background: var(--body-color);
   color: var(--text-color);
+  margin: 0px;
 }
 
 h1,
@@ -22,7 +24,11 @@ h5,
 h6 {
   color: var(--title-color);
 }
-
+.el-menu-item{
+  color: var(--title-color) !important;
+  font-weight: bold;
+  font-size: 17px;
+}
 a {
   color: var(--main-color);
 }
